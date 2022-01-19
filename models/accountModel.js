@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             primaryKey: true
         },
-        currentAmount: {
+        balance: {
             type: DataTypes.FLOAT,
             allowNull: false
         },

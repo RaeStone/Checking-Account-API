@@ -6,7 +6,7 @@ router.post('/', accountController.addAccount);
 
 router.delete('/:id', accountController.deleteAccount);
 
-router.put("/:id", accountController.updateAccountTotal);
+router.put("/:id", accountController.updateBalance);
 
 router.get('/', accountController.getAllAccounts);
 

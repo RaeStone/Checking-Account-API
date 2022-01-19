@@ -7,7 +7,7 @@ const Accounts = db.Accounts;
 const addAccount = async (req, res) => {
     try {
         let input_data = {
-            currentAmount: req.body.currentAmount,
+            balance: req.body.balance,
             accountNumber: req.body.accountNumber,
             routingNumber: req.body.routingNumber,
             userId: req.body.userId
@@ -41,13 +41,13 @@ const deleteAccount = async (req, res) => {
     
 }
 
-const updateAccountTotal = async (req, res) => {
+const updateBalance = async (req, res) => {
     try {
         let id = req.params.id;
-        let total = req.body.total;
+        let balance = req.body.balance;
 
-        await Accounts.update({currentAmount: total}, {where :{id: id}});
-        res.status(200).send(`account with id: ${id} has new total: ${total}`);
+        await Accounts.update({balance: balance}, {where :{id: id}});
+        res.status(200).send(`account with id: ${id} has new balance: ${balance}`);
     }
     catch(error) {
         res.status(400).send(error);
@@ -107,6 +107,6 @@ module.exports = {
     getOneAccount,
     getAccountFull,
     getAllAccountsFull,
-    updateAccountTotal,
+    updateBalance,
     addAccount
 }
