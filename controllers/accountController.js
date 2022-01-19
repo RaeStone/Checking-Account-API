@@ -12,14 +12,7 @@ const addAccount = async (req, res) => {
             routingNumber: req.body.routingNumber,
             userId: req.body.userId
         }
-        let regex = /[0-9]*/;
-        if (!regex.test(accountNumber)){
-            throw new Error('accountNumber only accepts digits');
-        }
-        if (!regex.test(routingNumber)){
-            throw new Error('routingNumber only accepts digits');
-        }
-    
+        
         const account = await Accounts.create(input_data);
         res.status(200).send(account);
     }
