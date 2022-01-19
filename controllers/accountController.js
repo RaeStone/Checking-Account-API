@@ -20,6 +20,14 @@ const deleteAccount = async (req, res) => {
     let id = req.params.id;
 
     await Accounts.destroy({where :{id: id}});
+    res.status(200).send(`account with id: ${id} has new total: ${total}`);
+}
+
+const updateAccountTotal = async (req, res) => {
+    let id = req.params.id;
+    let total = req.body.total;
+
+    await Accounts.update({currentAmount: total}, {where :{id: id}});
     res.status(200).send(`account with id: ${id} is deleted`);
 }
 
@@ -54,5 +62,6 @@ module.exports = {
     getAllAccounts,
     getOneAccount,
     getAccountFull,
-    getAllAccountsFull
+    getAllAccountsFull,
+    updateAccountTotal
 }
