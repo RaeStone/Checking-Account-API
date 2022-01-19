@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 router.post('/', accountController.addAccount);
 
-router.delete('/', accountController.deleteAccount);
+router.delete('/:id', accountController.deleteAccount);
 
 router.put("/:id", accountController.updateAccountTotal);
 

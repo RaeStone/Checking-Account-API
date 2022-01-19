@@ -20,7 +20,7 @@ const deleteAccount = async (req, res) => {
     let id = req.params.id;
 
     await Accounts.destroy({where :{id: id}});
-    res.status(200).send(`account with id: ${id} has new total: ${total}`);
+    res.status(200).send(`account with id: ${id} is deleted`);
 }
 
 const updateAccountTotal = async (req, res) => {
@@ -28,7 +28,7 @@ const updateAccountTotal = async (req, res) => {
     let total = req.body.total;
 
     await Accounts.update({currentAmount: total}, {where :{id: id}});
-    res.status(200).send(`account with id: ${id} is deleted`);
+    res.status(200).send(`account with id: ${id} has new total: ${total}`);
 }
 
 //common methods
