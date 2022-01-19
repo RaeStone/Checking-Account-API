@@ -1,5 +1,3 @@
-const databaseConfig = require('../databaseConfig');
-
 const { Sequelize, DataTypes } = require('sequelize');
 
 let sequelize = null;
