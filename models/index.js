@@ -13,6 +13,7 @@ if (process && process.env.DATABASE_URL) {
         }
     );
 } else {
+    const databaseConfig = require('../databaseConfig');
     sequelize = new Sequelize(
     {
         database: databaseConfig.DB,
