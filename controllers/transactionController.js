@@ -10,6 +10,7 @@ const addTransaction = async (req, res) => {
         date: req.body.date,
         accountId: req.body.accountId
     }
+    console.log(input_data);
 
     const transaction = await Transactions.create(input_data);
     res.status(200).send(transaction);

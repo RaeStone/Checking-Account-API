@@ -57,11 +57,11 @@ const getAllAccountsFull = async (req, res) => {
 }
 
 module.exports = {
-    addAccount,
     deleteAccount,
     getAllAccounts,
     getOneAccount,
     getAccountFull,
     getAllAccountsFull,
-    updateAccountTotal
+    updateAccountTotal,
+    addAccount
 }

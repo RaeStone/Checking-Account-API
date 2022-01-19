@@ -14,11 +14,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         accountNumber: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false
         },
         routingNumber: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false
         },
         userId: {
