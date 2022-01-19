@@ -16,7 +16,7 @@ if (process && process.env.DATABASE_URL) {
     );
 } else {
     sequelize = new Sequelize(
-    { // use imported configurations from dbConfig
+    {
         database: databaseConfig.DB,
         username: databaseConfig.USER,
         password: databaseConfig.PASSWORD,

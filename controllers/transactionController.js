@@ -1,5 +1,4 @@
 const db = require('../models/index');
-const { getAllAccountsFull } = require('./accountController');
 
 const Transactions = db.Transactions;
 
