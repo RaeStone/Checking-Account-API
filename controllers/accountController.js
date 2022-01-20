@@ -12,7 +12,7 @@ const addAccount = async (req, res) => {
             routingNumber: req.body.routingNumber,
             userId: req.body.userId
         }
-        
+
         const account = await Accounts.create(input_data);
         res.status(200).send(account);
     }
@@ -85,7 +85,7 @@ const getAccountFull = async (req, res) => {
 }
 
 const getAllAccountsFull = async (req, res) => {
-    try {
+   try {
         let accounts = await Accounts.findAll({include: db.Transactions});
         res.status(200).send(accounts);
     }

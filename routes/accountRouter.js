@@ -10,10 +10,10 @@ router.put("/:id", accountController.updateBalance);
 
 router.get('/', accountController.getAllAccounts);
 
-router.get('/:id', accountController.getOneAccount);
-
 router.get('/full', accountController.getAllAccountsFull);
 
 router.get('/full/:id', accountController.getAccountFull);
+
+router.get('/:id', accountController.getOneAccount);
 
 module.exports = router;
