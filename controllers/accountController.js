@@ -63,6 +63,7 @@ const getOneAccount = async (req, res) => {
     try {
         let id = req.params.id;
         let account = await Accounts.findOne({where: {id : id}});
+        console.log(account);
         res.status(200).send(account);
     }
     catch(error) {
