@@ -33,6 +33,18 @@ const deleteTransaction = async (req, res) => {
     }
 }
 
+const updateTransaction = async (req, res) => {
+    try {
+        let id = req.params.id;
+        let type = req.body.type
+        await Transactions.update({type: type},{where: {id: id}});
+        res.status(200).send("transaction updated");
+    }
+    catch(error){
+        res.status(400).send(error);
+    }
+}
+
 //common methods
 const getAllTransactions = async (req, res) => {
     try {
@@ -48,7 +60,7 @@ const getOneTransaction = async (req, res) => {
     try {
         let id = req.params.id;
     
-        let transactions = await Transactions.findOne({where: {id : id}});
+        let transaction = await Transactions.findOne({where: {id : id}});
         res.status(200).send(transaction);
     }
     catch(error){
@@ -70,6 +82,7 @@ const getAccountTransactions = async (req, res) => {
 
 module.exports = {
     addTransaction,
+    updateTransaction,
     getAllTransactions,
     getOneTransaction,
     deleteTransaction,
