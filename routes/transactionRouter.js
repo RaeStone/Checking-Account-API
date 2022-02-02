@@ -10,7 +10,7 @@ router.get('/', transactionController.getAllTransactions);
 
 router.get('/:id', transactionController.getOneTransaction);
 
-router.get('account/:id', transactionController.getAccountTransactions);
+router.get('/account/:id', transactionController.getAccountTransactions);
 
 router.delete('/:id', transactionController.deleteTransaction);
 
