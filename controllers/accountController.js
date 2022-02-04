@@ -61,8 +61,8 @@ const getAllAccounts = async (req, res) => {
 
 const getOneAccount = async (req, res) => {
     try {
-        let id = req.params.id;
-        let account = await Accounts.findOne({where: {id : id}});
+        let userId = req.params.userId;
+        let account = await Accounts.findOne({where: {userId : userId}});
         console.log(account);
         res.status(200).send(account);
     }
@@ -75,9 +75,9 @@ const getOneAccount = async (req, res) => {
 
 const getAccountFull = async (req, res) => {
     try {
-        let id = req.params.id;
+        let userId = req.params.id;
     
-        let account = await Accounts.findOne({where: {id : id}, include: db.Transactions});
+        let account = await Accounts.findOne({where: {userId : userId}, include: db.Transactions});
         res.status(200).send(account);
     }
     catch(error){
