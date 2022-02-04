@@ -61,7 +61,7 @@ const getAllAccounts = async (req, res) => {
 
 const getOneAccount = async (req, res) => {
     try {
-        let userId = req.params.userId;
+        let userId = req.params.id;
         let account = await Accounts.findOne({where: {userId : userId}});
         console.log(account);
         res.status(200).send(account);
