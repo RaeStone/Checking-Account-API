@@ -40,9 +40,10 @@ const updateBalance = async (req, res) => {
         let balance = req.body.balance;
 
         await Accounts.update({balance: balance}, {where :{userId: userId}});
-        res.status(200).send(`account with id: ${id} has new balance: ${balance}`);
+        res.status(200).send(`account with id: ${userId} has new balance: ${balance}`);
     }
     catch(error) {
+        console.log(error);
         res.status(400).send(error);
     }
     
