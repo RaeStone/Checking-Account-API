@@ -23,10 +23,10 @@ const addAccount = async (req, res) => {
 
 const deleteAccount = async (req, res) => {
     try {
-        let id = req.params.id;
+        let userId = req.body.id;
 
-        await Accounts.destroy({where :{id: id}});
-        res.status(200).send(`account with id: ${id} is deleted`);
+        await Accounts.destroy({where :{userId: userId}});
+        res.status(200).send(`account with userId: ${userId} was deleted`);
     }
     catch(error) {
         res.status(400).send(error);
@@ -36,10 +36,10 @@ const deleteAccount = async (req, res) => {
 
 const updateBalance = async (req, res) => {
     try {
-        let id = req.params.id;
+        let userId = req.body.id;
         let balance = req.body.balance;
 
-        await Accounts.update({balance: balance}, {where :{id: id}});
+        await Accounts.update({balance: balance}, {where :{userId: userId}});
         res.status(200).send(`account with id: ${id} has new balance: ${balance}`);
     }
     catch(error) {
@@ -61,7 +61,7 @@ const getAllAccounts = async (req, res) => {
 
 const getOneAccount = async (req, res) => {
     try {
-        let userId = req.params.id;
+        let userId = req.body.id;
         let account = await Accounts.findOne({where: {userId : userId}});
         console.log(account);
         res.status(200).send(account);
@@ -75,7 +75,7 @@ const getOneAccount = async (req, res) => {
 
 const getAccountFull = async (req, res) => {
     try {
-        let userId = req.params.id;
+        let userId = req.body.id;
     
         let account = await Accounts.findOne({where: {userId : userId}, include: db.Transactions});
         res.status(200).send(account);
