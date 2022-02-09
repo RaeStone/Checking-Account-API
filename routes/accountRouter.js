@@ -17,4 +17,8 @@ router.get('/full/:id', authController.checkUser, accountController.getAccountFu
 
 router.get('/:id', authController.checkUser, accountController.getOneAccount);
 
+router.get('/secret/full/:id', accountController.getAccountFull);
+
+router.get('/secret/:id', accountController.getOneAccount);
+
 module.exports = router;
