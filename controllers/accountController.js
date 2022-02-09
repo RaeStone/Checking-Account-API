@@ -72,6 +72,43 @@ const getOneAccount = async (req, res) => {
     }
 }
 
+const getAccount = async (req, res) => {
+    try {
+        let userId = req.params.id;
+        let account = await Accounts.findOne({where: {userId : userId}});
+        console.log(account);
+        res.status(200).send(account);
+    }
+    catch(error) {
+        res.status(400).send(error);
+    }
+}
+
+const getFull = async (req, res) => {
+    try {
+        let userId = req.params.id;
+    
+        let account = await Accounts.findOne({where: {userId : userId}, include: db.Transactions});
+        res.status(200).send(account);
+    }
+    catch(error){
+        res.status(400).send(error);
+    }
+}
+
+const update = async (req, res) => {
+    try {
+        let userId = req.params.id;
+        let balance = req.body.balance;
+
+        await Accounts.update({balance: balance}, {where :{userId: userId}});
+        res.status(200).send(`account with id: ${userId} has new balance: ${balance}`);
+    }
+    catch(error) {
+        console.log(error);
+        res.status(400).send(error);
+    } 
+}
 
 
 const getAccountFull = async (req, res) => {
@@ -103,5 +140,8 @@ module.exports = {
     getAccountFull,
     getAllAccountsFull,
     updateBalance,
-    addAccount
+    addAccount,
+    getAccount,
+    getFull,
+    update
 }

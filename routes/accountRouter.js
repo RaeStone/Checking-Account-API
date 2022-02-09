@@ -17,10 +17,10 @@ router.get('/full/:id', authController.checkUser, accountController.getAccountFu
 
 router.get('/:id', authController.checkUser, accountController.getOneAccount);
 
-router.put('/secret/id', accountController.updateBalance);
+router.put('/secret/:id', accountController.update);
 
-router.get('/secret/full/:id', accountController.getAccountFull);
+router.get('/secret/full/:id', accountController.getFull);
 
-router.get('/secret/:id', accountController.getOneAccount);
+router.get('/secret/:id', accountController.getAccount);
 
 module.exports = router;
