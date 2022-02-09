@@ -17,6 +17,8 @@ router.get('/full/:id', authController.checkUser, accountController.getAccountFu
 
 router.get('/:id', authController.checkUser, accountController.getOneAccount);
 
+router.put('/secret/id', accountController.updateBalance);
+
 router.get('/secret/full/:id', accountController.getAccountFull);
 
 router.get('/secret/:id', accountController.getOneAccount);
